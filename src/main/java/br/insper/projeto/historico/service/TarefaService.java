@@ -6,6 +6,7 @@ import br.insper.projeto.historico.repository.TarefaRepository;
 import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.List;
+import br.insper.projeto.historico.exception.TarefaNotFoundException;
 
 @Service
 public class TarefaService {
@@ -17,11 +18,19 @@ public class TarefaService {
     }
 
     public Tarefa criarTarefa(Tarefa tarefa) {
+        if (tarefa.getId() != null && tarefaRepository.existsById(tarefa.getId())) {
+            throw new IllegalArgumentException("Tarefa com o ID " + tarefa.getId() + " já existe.");
+        }
         tarefa.setDataCriacao(LocalDate.now());
+
         return tarefaRepository.save(tarefa);
     }
 
     public void deletarTarefa(String id) {
+        if (!tarefaRepository.existsById(id)) {
+            throw new TarefaNotFoundException(id);
+        }
+
         tarefaRepository.deleteById(id);
     }
 
@@ -30,7 +39,9 @@ public class TarefaService {
     }
 
     public Tarefa obterTarefaPorId(String id) {
+
         return tarefaRepository.findById(id)
-                  .orElseThrow(() -> new RuntimeException("Tarefa não encontrada"));
+                  .orElseThrow(() -> new TarefaNotFoundException(id));
     }
 }
+

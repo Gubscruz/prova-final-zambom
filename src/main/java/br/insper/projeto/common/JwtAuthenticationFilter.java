@@ -5,16 +5,14 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.http.*;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.*;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
 import java.util.*;
 
+@Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
 	private static final String VALIDATE_URL = "http://184.72.80.215/usuario/validate";
@@ -44,23 +42,18 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 					Map<String, Object> userDetails = resp.getBody();
 					String role = (String) userDetails.get("papel");
 
-					List<GrantedAuthority> authorities = Collections.singletonList(
-								 new SimpleGrantedAuthority("ROLE_" + role)
-					);
+					// Validação de permissões para rotas específicas
+					if (!isAuthorized(role, request)) {
+						response.sendError(HttpServletResponse.SC_FORBIDDEN, "Acesso negado: permissão insuficiente");
+						return;
+					}
 
-					Authentication authentication = new UsernamePasswordAuthenticationToken(
-								 userDetails.get("email"),
-								 null,
-								 authorities
-					);
-
-					SecurityContextHolder.getContext().setAuthentication(authentication);
 				} else {
 					response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Token inválido");
 					return;
 				}
 			} catch (Exception e) {
-				response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Token inválido");
+				response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Erro ao validar o token");
 				return;
 			}
 		} else {
@@ -68,6 +61,24 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 			return;
 		}
 
+		// Se o usuário tiver a permissão, continua o filtro
 		filterChain.doFilter(request, response);
+	}
+
+	private boolean isAuthorized(String role, HttpServletRequest request) {
+		String path = request.getServletPath();
+		String method = request.getMethod();
+
+		// Definir as permissões de acesso com base na role e rota
+		if (method.equals("POST") && path.equals("/tarefa")) {
+			return role.equals("ADMIN");
+		} else if (method.equals("DELETE") && path.startsWith("/tarefa")) {
+			return role.equals("ADMIN");
+		} else if (method.equals("GET") && path.startsWith("/tarefa")) {
+			return role.equals("ADMIN") || role.equals("DEVELOPER");
+		}
+
+		// Permitir acesso a rotas adicionais, se necessário
+		return false; // Bloquear qualquer outra rota por padrão
 	}
 }

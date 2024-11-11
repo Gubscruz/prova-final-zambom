@@ -1,4 +1,5 @@
 br/insper/projeto/historico/service/TarefaService.class
+br/insper/projeto/historico/exception/TarefaNotFoundException.class
 br/insper/projeto/common/JwtAuthenticationFilter.class
 br/insper/projeto/historico/model/Tarefa.class
 br/insper/projeto/ProjetoApplication.class

@@ -3,6 +3,7 @@
 /Users/gubscruz/Downloads/INSPER/4_PERIODO/projeto-software-agil/PF/prova-final-zambom/src/main/java/br/insper/projeto/common/JwtAuthenticationFilter.java
 /Users/gubscruz/Downloads/INSPER/4_PERIODO/projeto-software-agil/PF/prova-final-zambom/src/main/java/br/insper/projeto/common/SecurityConfig.java
 /Users/gubscruz/Downloads/INSPER/4_PERIODO/projeto-software-agil/PF/prova-final-zambom/src/main/java/br/insper/projeto/historico/controller/TarefaController.java
+/Users/gubscruz/Downloads/INSPER/4_PERIODO/projeto-software-agil/PF/prova-final-zambom/src/main/java/br/insper/projeto/historico/exception/TarefaNotFoundException.java
 /Users/gubscruz/Downloads/INSPER/4_PERIODO/projeto-software-agil/PF/prova-final-zambom/src/main/java/br/insper/projeto/historico/model/Tarefa.java
 /Users/gubscruz/Downloads/INSPER/4_PERIODO/projeto-software-agil/PF/prova-final-zambom/src/main/java/br/insper/projeto/historico/repository/TarefaRepository.java
 /Users/gubscruz/Downloads/INSPER/4_PERIODO/projeto-software-agil/PF/prova-final-zambom/src/main/java/br/insper/projeto/historico/service/TarefaService.java
