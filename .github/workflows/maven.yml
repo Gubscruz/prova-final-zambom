@@ -61,6 +61,7 @@ jobs:
         key: ${{ secrets.KEY_TEST }}
         port: 22
         script: |
-          docker stop container-pf
-          docker rm --force container-pf
+          docker network inspect rede-pf >/dev/null 2>&1 || docker network create rede-pf
+          docker stop container-pf || true
+          docker rm --force container-pf || true
           docker run -d -p 8080:8080 --network=rede-pf --name container-pf gubscruz/prova-final-zambom:${{ github.sha }}
