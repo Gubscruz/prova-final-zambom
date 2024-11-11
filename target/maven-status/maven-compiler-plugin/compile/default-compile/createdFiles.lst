@@ -1,10 +1,8 @@
+br/insper/projeto/historico/service/TarefaService.class
+br/insper/projeto/common/JwtAuthenticationFilter.class
+br/insper/projeto/historico/model/Tarefa.class
 br/insper/projeto/ProjetoApplication.class
-br/insper/projeto/historico/controller/HistoricoController.class
-br/insper/projeto/historico/service/HistoricoService.class
-br/insper/projeto/historico/model/Historico.class
-br/insper/projeto/historico/dto/PlanoUsuarioDTO.class
+br/insper/projeto/common/SecurityConfig.class
 br/insper/projeto/common/Erro.class
-br/insper/projeto/common/TokenUtils.class
-br/insper/projeto/common/WebSecurityConfig.class
-br/insper/projeto/historico/dto/CatalogoDTO.class
-br/insper/projeto/historico/repository/HistoricoRepository.class
+br/insper/projeto/historico/repository/TarefaRepository.class
+br/insper/projeto/historico/controller/TarefaController.class
