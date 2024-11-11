@@ -1,0 +1,10 @@
+/Users/gubscruz/Downloads/INSPER/4_PERIODO/projeto-software-agil/PF/prova-final-zambom/src/main/java/br/insper/projeto/ProjetoApplication.java
+/Users/gubscruz/Downloads/INSPER/4_PERIODO/projeto-software-agil/PF/prova-final-zambom/src/main/java/br/insper/projeto/common/Erro.java
+/Users/gubscruz/Downloads/INSPER/4_PERIODO/projeto-software-agil/PF/prova-final-zambom/src/main/java/br/insper/projeto/common/TokenUtils.java
+/Users/gubscruz/Downloads/INSPER/4_PERIODO/projeto-software-agil/PF/prova-final-zambom/src/main/java/br/insper/projeto/common/WebSecurityConfig.java
+/Users/gubscruz/Downloads/INSPER/4_PERIODO/projeto-software-agil/PF/prova-final-zambom/src/main/java/br/insper/projeto/historico/controller/HistoricoController.java
+/Users/gubscruz/Downloads/INSPER/4_PERIODO/projeto-software-agil/PF/prova-final-zambom/src/main/java/br/insper/projeto/historico/dto/CatalogoDTO.java
+/Users/gubscruz/Downloads/INSPER/4_PERIODO/projeto-software-agil/PF/prova-final-zambom/src/main/java/br/insper/projeto/historico/dto/PlanoUsuarioDTO.java
+/Users/gubscruz/Downloads/INSPER/4_PERIODO/projeto-software-agil/PF/prova-final-zambom/src/main/java/br/insper/projeto/historico/model/Historico.java
+/Users/gubscruz/Downloads/INSPER/4_PERIODO/projeto-software-agil/PF/prova-final-zambom/src/main/java/br/insper/projeto/historico/repository/HistoricoRepository.java
+/Users/gubscruz/Downloads/INSPER/4_PERIODO/projeto-software-agil/PF/prova-final-zambom/src/main/java/br/insper/projeto/historico/service/HistoricoService.java
