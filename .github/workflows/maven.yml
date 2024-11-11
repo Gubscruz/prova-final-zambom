@@ -61,6 +61,6 @@ jobs:
         key: ${{ secrets.KEY_TEST }}
         port: 22
         script: |
-          docker stop pf-zambom
-          docker rm --force pf-zambom
-          docker run -d -p 8081:8081 --network=rede-pf --name container-pf gubscruz/prova-final-zambom:${{ github.sha }}
+          docker stop container-pf
+          docker rm --force container-pf
+          docker run -d -p 8080:8080 --network=rede-pf --name container-pf gubscruz/prova-final-zambom:${{ github.sha }}
